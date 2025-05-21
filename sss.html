@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>I Have Something to Say...</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ffc3a0, #ffafbd);
+      color: #333;
+      text-align: center;
+      padding-top: 15%;
+      overflow: hidden;
+      animation: fadeIn 2s ease;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      animation: bounce 1s ease infinite alternate;
+    }
+
+    p {
+      font-size: 1.3rem;
+      margin-top: 20px;
+    }
+
+    #btn {
+      margin-top: 30px;
+      padding: 12px 25px;
+      font-size: 1rem;
+      background-color: #ff6f91;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    #btn:hover {
+      background-color: #ff4e72;
+    }
+
+    #reveal {
+      display: none;
+      margin-top: 30px;
+      font-size: 1.4rem;
+      color: #fff;
+      background-color: #6a0572;
+      padding: 20px;
+      border-radius: 15px;
+      animation: fadeIn 1s ease;
+    }
+
+    audio {
+      display: none;
+    }
+
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: pink;
+      animation: float 8s linear infinite;
+      border-radius: 50% 50% 0 0;
+      transform: rotate(45deg);
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 0;
+      }
+      30% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Hearts -->
+  <div class="hearts" id="hearts"></div>
+
+  <!-- Background Music -->
+  <audio autoplay loop>
+    <source src="https://open.spotify.com/album/5mGR6qKnpILzSzq1yyAUXk?si=l1qQcAfNSb64_b55qFP8pQ" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- 💬 Confession Title -->
+  <h1>Hey, I need to tell you something...</h1>
+
+
+  <!-- ❤️ Reveal Button -->
+  <button id="btn">Click to reveal 💖</button>
+
+  <!-- 💌 Confession Message -->
+  <div id="reveal">
+   tanginamo! 🌸
+  </div>
+
+  <script>
+    // Show reveal message
+    const btn = document.getElementById('btn');
+    const reveal = document.getElementById('reveal');
+
+    btn.addEventListener('click', () => {
+      reveal.style.display = 'block';
+      btn.style.display = 'none';
+    });
+
+    // Floating hearts generator
+    const hearts = document.getElementById('hearts');
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = 6 + Math.random() * 4 + 's';
+      heart.style.backgroundColor = ['#ff6f91', '#fbc2eb', '#ff9a9e'][Math.floor(Math.random() * 3)];
+      hearts.appendChild(heart);
+      setTimeout(() => heart.remove(), 10000);
+    }, 300);
+  </script>
+
+</body>
+</html>
