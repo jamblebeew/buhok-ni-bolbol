@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Confession 💌</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: pink;
+      text-align: center;
+      padding: 50px;
+      animation: fadeIn 3s ease-in;
+    }
+    h1, p {
+      color: #fff;
+      text-shadow: 1px 1px 4px #000;
+    }
+    #message {
+      display: none;
+      margin-top: 20px;
+      font-size: 20px;
+      color: #fff;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Hey, I need to tell you something...</h1>
+  <p>It’s been on my mind for a while now.</p>
+  <button id="btn">Click to reveal 💖</button>
+  <div id="message">I like you... a lot. 💌</div>
+
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    document.getElementById("btn").onclick = () => {
+      document.getElementById("message").style.display = "block";
+    };
+  </script>
+</body>
+</html>
